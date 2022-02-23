@@ -1,6 +1,6 @@
-* {
+/* * {
   border: 1px solid red;
-}
+} */
 
 body {
   display: flex;
@@ -62,23 +62,23 @@ button {
   width: 200px;
 }
 
-#color1 .box {
+#box1 {
   background-color: #214485;
 }
 
-#color2 .box {
+#box2 {
   background-color: #852147;
 }
 
-#color3 .box {
+#box3 {
   background-color: #786F63;
 }
 
-#color4 .box {
+#box4 {
   background-color: #21952B;
 }
 
-#color5 .box {
+#box5 {
   background-color: #123456;
 }
 
@@ -92,4 +92,9 @@ img {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+}
+
+p {
+  font-size: 20px;
+  margin: 15px 5px;
 }

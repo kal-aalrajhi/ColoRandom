@@ -5,38 +5,43 @@
   </head>
   <body>
     <main>
-      <h1>COLORANDOM</h1>
+      <h1>ColoRandom</h1>
       <section class="current-palette">
         <div id="color1">
-          <div class="box"></div>
-          <div class="hexcode"
+          <div class="box" id="box1">
+          </div>
+          <div class="hexcode">
             <p>#214485</p>
             <img src="./assets/padlock.png">
           </div>
         </div>
         <div id="color2">
-          <div class="box"></div>
+          <div class="box" id="box2">
+          </div>
           <div class="hexcode">
             <p>#852147</p>
             <img src="./assets/padlock.png">
           </div>
         </div>
         <div id="color3">
-          <div class="box"></div>
+          <div class="box" id="box3">
+          </div>
           <div class="hexcode">
             <p>#786F63</p>
             <img src="./assets/padlock.png">
           </div>
         </div>
         <div id="color4">
-          <div class="box"></div>
+          <div class="box" id="box4">
+          </div>
           <div class="hexcode">
             <p>#21952B</p>
             <img src="./assets/padlock.png">
           </div>
         </div>
         <div id="color5">
-          <div class="box"></div>
+          <div class="box" id="box5">
+          </div>
           <div class="hexcode">
             <p>#123456</p>
             <img src="./assets/padlock.png">
@@ -44,13 +49,15 @@
         </div>
       </section>
       <section class="buttons">
-        <button>New Palette</button>
-        <button>Save Palette</button>
+        <button id="new-palette-button">New Palette</button>
+        <button id="save-palette-button">Save Palette</button>
       </section>
     </main>
     <section class="saved-palettes">
       <h2>Saved Palettes</h2>
     </section>
   </body>
-  <script type="text/text/javascript" src="scripts.js"></script>
+  <script type="text/javascript" src="Color.js"></script>
+  <script type="text/javascript" src="Palette.js"></script>
+  <script type="text/javascript" src="scripts.js"></script>
 </html>

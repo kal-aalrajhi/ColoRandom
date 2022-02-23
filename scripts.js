@@ -3,18 +3,26 @@ var hexCharacters =[
   "A", "B", "C", "D", "E", "F"
 ]
 
-var currentHex = "";
+var currentPalette
 
 function makeNewHex() {
   var hexCode = "#";
-  for(i = 0; i < 6; i++){
+  for(var i = 0; i < 6; i++){
     hexCode += hexCharacters[getRandomIndex(hexCharacters)];
   }
-  currentHex = hexCode;
+   return new Color(hexCode);
 }
-makeNewHex()
 
-console.log(currentHex)
+
+function makeNewPalette(){
+  currentPalette = new Palette();
+  for(var i = 0; i < 5; i++){
+    currentPalette[`color${i + 1}`] = makeNewHex();
+  }
+}
+makeNewPalette()
+console.log(currentPalette)
+
 
 function getRandomIndex(array){
   return Math.floor(Math.random() * array.length);

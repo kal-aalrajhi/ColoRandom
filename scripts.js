@@ -2,7 +2,8 @@
 var hexCharacters =[
   "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
   "A", "B", "C", "D", "E", "F"
-]
+];
+
 var currentPalette = new Palette();
 var buttonNewPalette = document.querySelector('#new-palette-button');
 var displayPalette = document.querySelector('.current-palette');
@@ -33,6 +34,7 @@ function makeNewPalette() {
       currentPalette[`color${i + 1}`] = makeNewHex();
     }
   }
+  displayCurrentPalette();
   console.log(currentPalette);
 }
 
@@ -44,4 +46,11 @@ function lockColor(event) {
     }
   }
   // console.log(colorId);
+}
+
+function displayCurrentPalette() {
+  for (var i = 0; i < 5; i++) {
+    var currentBox = document.querySelector(`#box${i + 1}`);
+    currentBox.style.backgroundColor = currentPalette[`color${i + 1}`].hexCode;
+  }
 }

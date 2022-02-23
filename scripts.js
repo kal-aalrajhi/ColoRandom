@@ -50,7 +50,10 @@ function lockColor(event) {
 
 function displayCurrentPalette() {
   for (var i = 0; i < 5; i++) {
+    var currentHex = currentPalette[`color${i + 1}`].hexCode;
     var currentBox = document.querySelector(`#box${i + 1}`);
-    currentBox.style.backgroundColor = currentPalette[`color${i + 1}`].hexCode;
+    currentBox.style.backgroundColor = currentHex;
+    var currentCode = document.querySelectorAll(`p`);
+    currentCode[i].innerText = currentHex;
   }
 }

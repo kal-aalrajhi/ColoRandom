@@ -1,6 +1,6 @@
-* {
+/* * {
   border: 1px solid red;
-}
+} */
 
 body {
   display: flex;
@@ -92,4 +92,9 @@ img {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+}
+
+p {
+  font-size: 20px;
+  margin: 15px 5px;
 }

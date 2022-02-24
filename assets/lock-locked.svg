@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:export-filename="/Users/dylanduke/Pictures/lock-locked.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="1.1.2 (b8e25be8, 2022-02-05)"
+   sodipodi:docname="lock-locked.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#111111"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.75306872"
+     inkscape:cx="477.38007"
+     inkscape:cy="198.52106"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="1440"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#000000;fill-rule:evenodd;stroke-width:0.264583"
+       id="rect31"
+       width="112.20779"
+       height="87.311684"
+       x="55.402596"
+       y="123.07792"
+       ry="9.818182" />
+    <rect
+       style="fill:#fffffe;fill-opacity:1;fill-rule:evenodd;stroke-width:0.245288"
+       id="rect31-3"
+       width="104.76939"
+       height="80.369179"
+       x="59.245762"
+       y="126.42521"
+       ry="9.0374985" />
+    <rect
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke-width:0.226324"
+       id="rect31-3-6"
+       width="97.813202"
+       height="73.287781"
+       x="62.537525"
+       y="129.95941"
+       ry="8.2411966" />
+    <path
+       style="fill:#ffffff;stroke:#000000;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
+       d="M 149.72382,115.19453 149.3711,98.596027 c 0,0 1.05191,-46.27778 -39.44805,-46.461038 C 71.17629,51.959664 70.82564,97.719404 70.82564,97.719404 l 0.176016,17.698806 h 18.057751 l 0.350649,-17.698807 c 0,0 -1.052068,-30.141593 21.038964,-29.805195 21.56315,0.328359 21.38961,30.857144 21.38961,30.857144 l 0.52736,16.247848 z"
+       id="path3985"
+       sodipodi:nodetypes="ccsccccsccc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:36.85px;line-height:1.25;font-family:sans-serif, helvetica;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:2.86667;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="86.945732"
+       y="155.89874"
+       id="text4676"
+       transform="scale(0.86540621,1.1555267)"><tspan
+         sodipodi:role="line"
+         id="tspan4674"
+         style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:2.86667;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         x="86.945732"
+         y="155.89874">ADW</tspan></text>
+  </g>
+</svg>

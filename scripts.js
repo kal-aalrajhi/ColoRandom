@@ -91,6 +91,7 @@ function displayMiniPalette() {
     miniPalette.appendChild(miniBox);
   }
   var trashIcon = document.createElement("img");
+  trashIcon.src = 'assets/delete_icon.png';
   miniPalette.appendChild(trashIcon);
 }
 

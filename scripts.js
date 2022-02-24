@@ -72,7 +72,7 @@ function savePalette() {
     currentPalette.color5
     );
   savedPalettes.push(tempPalette)
-  // displayMiniPalette();
+  displayMiniPalette();
 
   //   if(!savedPalettes.includes(tempPalette)){
   //     savedPalettes.push(tempPalette)
@@ -90,10 +90,9 @@ function displayMiniPalette() {
     miniBox.classList.add("mini-box");
     miniPalette.appendChild(miniBox);
   }
+  var trashIcon = document.createElement("img");
+  miniPalette.appendChild(trashIcon);
 }
-
-displayMiniPalette();
-displayMiniPalette();
 
 // function displayMiniPalette() {
 //   var miniDiv = document.createElement("div");

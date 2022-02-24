@@ -3,6 +3,7 @@ var hexCharacters =[
   "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
   "A", "B", "C", "D", "E", "F"
 ];
+
 var savedPalettes = []
 
 var currentPalette = new Palette();
@@ -11,12 +12,12 @@ var buttonNewPalette = document.querySelector('#new-palette-button');
 var buttonSavePalette = document.querySelector('#save-palette-button')
 var displayPalette = document.querySelector('.current-palette');
 var savedPalettesSection = document.querySelector('.saved-palettes');
-
+var iconLock = document.querySelectorAll('.lock')
 
 // Event Listeners
 window.addEventListener('load', makeNewPalette);
 buttonNewPalette.addEventListener('click', makeNewPalette);
-displayPalette.addEventListener('click', function(){
+displayPalette.addEventListener('click', function(event){
   lockColor(event);
 });
 buttonSavePalette.addEventListener('click', savePalette)
@@ -45,16 +46,6 @@ function makeNewPalette() {
   console.log(currentPalette);
 }
 
-function lockColor(event) {
-  var colorId = event.target.id;
-  for (var i = 0; i < 5; i++) {
-    if (colorId === `box${i + 1}`) {
-      currentPalette[`color${i+1}`].locked = true;
-    }
-  }
-  // console.log(colorId);
-}
-
 function displayCurrentPalette() {
   for (var i = 0; i < 5; i++) {
     var currentHex = currentPalette[`color${i + 1}`].hexCode;
@@ -65,6 +56,20 @@ function displayCurrentPalette() {
   }
 }
 
+function lockColor(event) {
+  var colorId = event.target.id;
+  for (var i = 0; i < 5; i++) {
+    if (colorId === `box${i + 1}` && !currentPalette[`color${i+1}`].locked) {
+      currentPalette[`color${i+1}`].locked = true;
+      iconLock[i].src = './assets/lock-locked.svg';
+    } else if (colorId === `box${i + 1}` && currentPalette[`color${i+1}`].locked){
+      currentPalette[`color${i+1}`].locked = false;
+      iconLock[i].src = './assets/lock-unlocked.svg';
+    }
+  }
+}
+
+
 function savePalette() {
   tempPalette = new Palette(
     currentPalette.color1,
@@ -73,7 +78,7 @@ function savePalette() {
     currentPalette.color4,
     currentPalette.color5,
     );
-  savedPalettes.unshift(tempPalette)
+  savedPalettes.unshift(tempPalette);
   displayMiniPalette();
   makeNewPalette();
 }
@@ -90,6 +95,7 @@ function displayMiniPalette() {
     miniPalette.appendChild(miniBox);
   }
   var trashIcon = document.createElement("img");
+  trashIcon.classList.add("trash")
   trashIcon.src = 'assets/delete_icon.png';
   miniPalette.appendChild(trashIcon);
 }

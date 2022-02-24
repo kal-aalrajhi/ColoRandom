@@ -3,10 +3,15 @@ var hexCharacters =[
   "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
   "A", "B", "C", "D", "E", "F"
 ];
+var savedPalettes = []
 
 var currentPalette = new Palette();
+
 var buttonNewPalette = document.querySelector('#new-palette-button');
+var buttonSavePalette = document.querySelector('#save-palette-button')
 var displayPalette = document.querySelector('.current-palette');
+var savedPalettesSection = document.querySelector('.saved-palettes');
+
 
 // Event Listeners
 window.addEventListener('load', makeNewPalette);
@@ -14,6 +19,7 @@ buttonNewPalette.addEventListener('click', makeNewPalette);
 displayPalette.addEventListener('click', function(){
   lockColor(event);
 });
+buttonSavePalette.addEventListener('click', savePalette)
 
 // Functions
 function getRandomIndex(array) {
@@ -29,6 +35,7 @@ function makeNewHex() {
 }
 
 function makeNewPalette() {
+
   for (var i = 0; i < 5; i++) {
     if (!currentPalette[`color${i + 1}`].locked) {
       currentPalette[`color${i + 1}`] = makeNewHex();
@@ -56,4 +63,33 @@ function displayCurrentPalette() {
     var currentCode = document.querySelectorAll(`p`);
     currentCode[i].innerText = currentHex;
   }
+}
+
+function savePalette() {
+  tempPalette = new Palette(
+    currentPalette.color1,
+    currentPalette.color2,
+    currentPalette.color3,
+    currentPalette.color4,
+    currentPalette.color5,
+    );
+  savedPalettes.unshift(tempPalette)
+  displayMiniPalette();
+  makeNewPalette();
+}
+
+
+function displayMiniPalette() {
+  var miniPalette = document.createElement("div");
+  miniPalette.classList.add("mini-palette");
+  savedPalettesSection.appendChild(miniPalette);
+  for(var i = 0; i < 5; i++) {
+    var miniBox = document.createElement("div");
+    miniBox.classList.add("mini-box");
+    miniBox.style.backgroundColor = savedPalettes[0][`color${i + 1}`].hexCode;
+    miniPalette.appendChild(miniBox);
+  }
+  var trashIcon = document.createElement("img");
+  trashIcon.src = 'assets/delete_icon.png';
+  miniPalette.appendChild(trashIcon);
 }

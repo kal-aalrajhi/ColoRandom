@@ -96,7 +96,7 @@ function displayMiniPalette(idx) {
 
   var trashIcon = document.createElement("img");
   trashIcon.classList.add("trash");
-  trashIcon.id = savedPalettes[savedPalettes.length - 1].id;
+  trashIcon.id = savedPalettes[idx].id;
   trashIcon.src = 'assets/delete_icon.png';
   miniPalette.appendChild(trashIcon);
 }

@@ -70,8 +70,48 @@ function savePalette() {
     currentPalette.color3,
     currentPalette.color4,
     currentPalette.color5
-    )
-    // if(!savedPalettes.includes(tempPalette)){
-      savedPalettes.push(tempPalette)
-   // }
+    );
+  savedPalettes.push(tempPalette)
+  // displayMiniPalette();
+
+  //   if(!savedPalettes.includes(tempPalette)){
+  //     savedPalettes.push(tempPalette)
+  //  }
 }
+
+var savedPalettesSection = document.querySelector('.saved-palettes');
+function displayMiniPalette() {
+  var miniPalette = document.createElement("div");
+  miniPalette.classList.add("mini-palette");
+  savedPalettesSection.appendChild(miniPalette);
+
+  for(var i = 0; i < 5; i++) {
+    var miniBox = document.createElement("div");
+    miniBox.classList.add("mini-box");
+    miniPalette.appendChild(miniBox);
+  }
+}
+
+displayMiniPalette();
+displayMiniPalette();
+
+// function displayMiniPalette() {
+//   var miniDiv = document.createElement("div");
+//   miniDivsSection.appendChild(miniDiv);
+
+//   for (var i = 0; i < 5; i++) {
+//     var miniColor = document.createElement("div");
+//     miniColor.classList.add("mini-box");
+//     miniDiv.appendChild(miniColor);
+//   }
+// }
+
+
+
+// var miniDiv = document.createElement("div");
+// var miniColor = document.createElement("div");
+// miniColor.classList.add("mini-box");
+// savedPalettesSection.appendChild(miniDiv).appendChild(miniColor);
+
+// displayMiniPalette();
+

@@ -1,6 +1,6 @@
-/* * {
+* {
   border: 1px solid red;
-} */
+}
 
 body {
   display: flex;
@@ -39,6 +39,8 @@ div {
   width: 20%;
   text-align: center;
   border-left: 3px solid black;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {

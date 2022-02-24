@@ -75,9 +75,7 @@ function savePalette() {
     );
   savedPalettes.unshift(tempPalette)
   displayMiniPalette();
-  //   if(!savedPalettes.includes(tempPalette)){
-  //     savedPalettes.push(tempPalette)
-  //  }
+  makeNewPalette();
 }
 
 
@@ -95,11 +93,3 @@ function displayMiniPalette() {
   trashIcon.src = 'assets/delete_icon.png';
   miniPalette.appendChild(trashIcon);
 }
-
-// function
-
-//Goal: We have our html element functionality, we want to change the colors of the mini boxes
-//Steps: Target each mini-box individually, update it backgroundColor
-  //Small formatting things
-//Questions: possibly querySelectorAll to put those mini-boxes in an array
-  //Once in an array, iterate through setting backg equal to currentPalette.color1...

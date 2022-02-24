@@ -11,14 +11,18 @@ var buttonSavePalette = document.querySelector('#save-palette-button');
 var displayPalette = document.querySelector('.current-palette');
 var savedPalettesSection = document.querySelector('.saved-palettes');
 var iconLock = document.querySelectorAll('.lock');
+var iconTrash = document.querySelectorAll('.trash');
 
 // Event Listeners
 window.addEventListener('load', makeNewPalette);
 buttonNewPalette.addEventListener('click', makeNewPalette);
+buttonSavePalette.addEventListener('click', savePalette);
+savedPalettesSection.addEventListener('click', function(event) {
+  deletePalette(event);
+});
 displayPalette.addEventListener('click', function(event){
   lockColor(event);
 });
-buttonSavePalette.addEventListener('click', savePalette);
 
 // Functions
 function getRandomIndex(array) {
@@ -74,11 +78,11 @@ function savePalette() {
     currentPalette.color5,
     );
   savedPalettes.push(tempPalette);
-  displayMiniPalette();
+  displayMiniPalette(savedPalettes.length - 1);
   makeNewPalette();
 }
 
-function displayMiniPalette() {
+function displayMiniPalette(idx) {
   var miniPalette = document.createElement("div");
   miniPalette.classList.add("mini-palette");
   savedPalettesSection.appendChild(miniPalette);
@@ -86,7 +90,7 @@ function displayMiniPalette() {
   for(var i = 0; i < 5; i++) {
     var miniBox = document.createElement("div");
     miniBox.classList.add("mini-box");
-    miniBox.style.backgroundColor = savedPalettes[savedPalettes.length - 1][`color${i + 1}`].hexCode;
+    miniBox.style.backgroundColor = savedPalettes[idx][`color${i + 1}`].hexCode;
     miniPalette.appendChild(miniBox);
   }
 
@@ -97,11 +101,6 @@ function displayMiniPalette() {
   miniPalette.appendChild(trashIcon);
 }
 
-var iconTrash = document.querySelectorAll('.trash');
-savedPalettesSection.addEventListener('click', function(event) {
-  deletePalette(event);
-});
-
 function deletePalette(event) {
   var trashId = event.target.id;
   for (var i = 0; i < savedPalettes.length; i++) {
@@ -109,7 +108,12 @@ function deletePalette(event) {
       savedPalettes.splice(i, 1);
     }
   }
-  // delete palette out of savedPalettes array
-  // update display
-    // clear section, maintain header
+  refreshSavedPalettes();
+}
+
+function refreshSavedPalettes() {
+  savedPalettesSection.innerHTML = "<h2>saved palettes</h2>";
+  for (var i = 0; i < savedPalettes.length; i++) {
+    displayMiniPalette(i);
+  }
 }

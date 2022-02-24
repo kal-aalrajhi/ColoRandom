@@ -10,6 +10,7 @@ var currentPalette = new Palette();
 var buttonNewPalette = document.querySelector('#new-palette-button');
 var buttonSavePalette = document.querySelector('#save-palette-button')
 var displayPalette = document.querySelector('.current-palette');
+var savedPalettesSection = document.querySelector('.saved-palettes');
 
 
 // Event Listeners
@@ -19,6 +20,7 @@ displayPalette.addEventListener('click', function(){
   lockColor(event);
 });
 buttonSavePalette.addEventListener('click', savePalette)
+
 // Functions
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -69,25 +71,24 @@ function savePalette() {
     currentPalette.color2,
     currentPalette.color3,
     currentPalette.color4,
-    currentPalette.color5
+    currentPalette.color5,
     );
-  savedPalettes.push(tempPalette)
+  savedPalettes.unshift(tempPalette)
   displayMiniPalette();
-
   //   if(!savedPalettes.includes(tempPalette)){
   //     savedPalettes.push(tempPalette)
   //  }
 }
 
-var savedPalettesSection = document.querySelector('.saved-palettes');
+
 function displayMiniPalette() {
   var miniPalette = document.createElement("div");
   miniPalette.classList.add("mini-palette");
   savedPalettesSection.appendChild(miniPalette);
-
   for(var i = 0; i < 5; i++) {
     var miniBox = document.createElement("div");
     miniBox.classList.add("mini-box");
+    miniBox.style.backgroundColor = savedPalettes[0][`color${i + 1}`].hexCode;
     miniPalette.appendChild(miniBox);
   }
   var trashIcon = document.createElement("img");
@@ -95,23 +96,10 @@ function displayMiniPalette() {
   miniPalette.appendChild(trashIcon);
 }
 
-// function displayMiniPalette() {
-//   var miniDiv = document.createElement("div");
-//   miniDivsSection.appendChild(miniDiv);
+// function
 
-//   for (var i = 0; i < 5; i++) {
-//     var miniColor = document.createElement("div");
-//     miniColor.classList.add("mini-box");
-//     miniDiv.appendChild(miniColor);
-//   }
-// }
-
-
-
-// var miniDiv = document.createElement("div");
-// var miniColor = document.createElement("div");
-// miniColor.classList.add("mini-box");
-// savedPalettesSection.appendChild(miniDiv).appendChild(miniColor);
-
-// displayMiniPalette();
-
+//Goal: We have our html element functionality, we want to change the colors of the mini boxes
+//Steps: Target each mini-box individually, update it backgroundColor
+  //Small formatting things
+//Questions: possibly querySelectorAll to put those mini-boxes in an array
+  //Once in an array, iterate through setting backg equal to currentPalette.color1...

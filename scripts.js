@@ -8,8 +8,8 @@ var currentPalette = new Palette();
 
 var buttonNewPalette = document.querySelector('#new-palette-button');
 var buttonSavePalette = document.querySelector('#save-palette-button');
-var displayPalette = document.querySelector('.current-palette');
 var savedPalettesSection = document.querySelector('.saved-palettes');
+var displayPalette = document.querySelector('.current-palette');
 var iconLock = document.querySelectorAll('.lock');
 var iconTrash = document.querySelectorAll('.trash');
 

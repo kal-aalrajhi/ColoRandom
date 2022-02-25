@@ -1,6 +1,6 @@
 # ColoRandom
 
-<img width="125" alt="ColoRandom-Project" src="">
+<img width="500" alt="ColoRandom-Project" src="https://user-images.githubusercontent.com/96206823/155771028-fc322b62-a5a0-4031-86af-eb0c242d3828.png">
 
 ## Table of Contents
 
@@ -38,7 +38,7 @@ This project was assigned as a part of Turing School of Software and Design's Fr
 - When a user has a collection of colors that they're happy with, clicking **Save Palette** will move this palette into the Saved Palettes section. They can choose to remove any palette from this section by clicking the trash icon next to the appropriate palette.
 
 ## Page Demo
-![Alt Text]()
+![Example of button functionality](https://media.giphy.com/media/YJ4jzH6DEZWkzvHl38/giphy.gif)
 
 ## Possible Future Extensions
 - Allow users to scroll over saved colors to view the color's hexcodes.

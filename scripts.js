@@ -1,13 +1,13 @@
 // Global Variables
 var currentPalette = new Palette();
 var hexCharacters =[
-  "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
-  "A", "B", "C", "D", "E", "F"
+  '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
+  'A', 'B', 'C', 'D', 'E', 'F'
 ];
 var savedPalettes = [];
 
-var buttonNewPalette = document.querySelector('#new-palette-button');
-var buttonSavePalette = document.querySelector('#save-palette-button');
+var buttonNewPalette = document.querySelector('#newPaletteButton');
+var buttonSavePalette = document.querySelector('#savePaletteButton');
 var displayPalette = document.querySelector('.current-palette');
 var iconLock = document.querySelectorAll('.lock');
 var iconTrash = document.querySelectorAll('.trash');
@@ -46,19 +46,19 @@ function displayCurrentPalette() {
 }
 
 function displayMiniPalette(idx) {
-  var miniPalette = document.createElement("div");
-  miniPalette.classList.add("mini-palette");
+  var miniPalette = document.createElement('div');
+  miniPalette.classList.add('mini-palette');
   savedPalettesSection.appendChild(miniPalette);
 
   for(var i = 1; i <= 5; i++) {
-    var miniBox = document.createElement("div");
-    miniBox.classList.add("mini-box");
+    var miniBox = document.createElement('div');
+    miniBox.classList.add('mini-box');
     miniBox.style.backgroundColor = savedPalettes[idx][`color${i}`].hexCode;
     miniPalette.appendChild(miniBox);
   }
 
-  var trashIcon = document.createElement("img");
-  trashIcon.classList.add("trash");
+  var trashIcon = document.createElement('img');
+  trashIcon.classList.add('trash');
   trashIcon.id = savedPalettes[idx].id;
   trashIcon.src = 'assets/delete_icon.png';
   miniPalette.appendChild(trashIcon);
@@ -82,7 +82,7 @@ function lockColor(event) {
 }
 
 function makeNewHex() {
-  var hexCode = "#";
+  var hexCode = '#';
   for (var i = 0; i < 6; i++) {
     hexCode += hexCharacters[getRandomIndex(hexCharacters)];
   }
@@ -99,7 +99,7 @@ function makeNewPalette() {
 }
 
 function refreshSavedPalettes() {
-  savedPalettesSection.innerHTML = "<h2>saved palettes</h2>";
+  savedPalettesSection.innerHTML = '<h2>saved palettes</h2>';
   for (var i = 0; i < savedPalettes.length; i++) {
     displayMiniPalette(i);
   }

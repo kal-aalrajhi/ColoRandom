@@ -25,25 +25,14 @@ savedPalettesSection.addEventListener('click', function(event) {
 window.addEventListener('load', makeNewPalette);
 
 // Functions
-function getRandomIndex(array) {
-  return Math.floor(Math.random() * array.length);
-}
-
-function makeNewHex() {
-  var hexCode = "#";
-  for (var i = 0; i < 6; i++) {
-    hexCode += hexCharacters[getRandomIndex(hexCharacters)];
-  }
-   return new Color(hexCode);
-}
-
-function makeNewPalette() {
-  for (var i = 1; i <= 5; i++) {
-    if (!currentPalette[`color${i}`].locked) {
-      currentPalette[`color${i}`] = makeNewHex();
+function deletePalette(event) {
+  var trashId = event.target.id;
+  for (var i = 0; i < savedPalettes.length; i++) {
+    if(savedPalettes[i].id.toString() === trashId) {
+      savedPalettes.splice(i, 1);
     }
   }
-  displayCurrentPalette();
+  refreshSavedPalettes();
 }
 
 function displayCurrentPalette() {
@@ -54,32 +43,6 @@ function displayCurrentPalette() {
     var currentCode = document.querySelectorAll(`p`);
     currentCode[i].innerText = currentHex;
   }
-}
-
-function lockColor(event) {
-  var colorId = event.target.id;
-  for (var i = 0; i < 5; i++) {
-    if (colorId === `box${i + 1}` && !currentPalette[`color${i+1}`].locked) {
-      currentPalette[`color${i+1}`].locked = true;
-      iconLock[i].src = './assets/lock-locked.svg';
-    } else if (colorId === `box${i + 1}` && currentPalette[`color${i+1}`].locked){
-      currentPalette[`color${i+1}`].locked = false;
-      iconLock[i].src = './assets/lock-unlocked.svg';
-    }
-  }
-}
-
-function savePalette() {
-  tempPalette = new Palette(
-    currentPalette.color1,
-    currentPalette.color2,
-    currentPalette.color3,
-    currentPalette.color4,
-    currentPalette.color5,
-    );
-  savedPalettes.push(tempPalette);
-  displayMiniPalette(savedPalettes.length - 1);
-  makeNewPalette();
 }
 
 function displayMiniPalette(idx) {
@@ -101,14 +64,38 @@ function displayMiniPalette(idx) {
   miniPalette.appendChild(trashIcon);
 }
 
-function deletePalette(event) {
-  var trashId = event.target.id;
-  for (var i = 0; i < savedPalettes.length; i++) {
-    if(savedPalettes[i].id.toString() === trashId) {
-      savedPalettes.splice(i, 1);
+function getRandomIndex(array) {
+  return Math.floor(Math.random() * array.length);
+}
+
+function lockColor(event) {
+  var colorId = event.target.id;
+  for (var i = 0; i < 5; i++) {
+    if (colorId === `box${i + 1}` && !currentPalette[`color${i+1}`].locked) {
+      currentPalette[`color${i+1}`].locked = true;
+      iconLock[i].src = './assets/lock-locked.svg';
+    } else if (colorId === `box${i + 1}` && currentPalette[`color${i+1}`].locked){
+      currentPalette[`color${i+1}`].locked = false;
+      iconLock[i].src = './assets/lock-unlocked.svg';
     }
   }
-  refreshSavedPalettes();
+}
+
+function makeNewHex() {
+  var hexCode = "#";
+  for (var i = 0; i < 6; i++) {
+    hexCode += hexCharacters[getRandomIndex(hexCharacters)];
+  }
+  return new Color(hexCode);
+}
+
+function makeNewPalette() {
+  for (var i = 1; i <= 5; i++) {
+    if (!currentPalette[`color${i}`].locked) {
+      currentPalette[`color${i}`] = makeNewHex();
+    }
+  }
+  displayCurrentPalette();
 }
 
 function refreshSavedPalettes() {
@@ -116,4 +103,17 @@ function refreshSavedPalettes() {
   for (var i = 0; i < savedPalettes.length; i++) {
     displayMiniPalette(i);
   }
+}
+
+function savePalette() {
+  tempPalette = new Palette(
+    currentPalette.color1,
+    currentPalette.color2,
+    currentPalette.color3,
+    currentPalette.color4,
+    currentPalette.color5,
+  );
+  savedPalettes.push(tempPalette);
+  displayMiniPalette(savedPalettes.length - 1);
+  makeNewPalette();
 }

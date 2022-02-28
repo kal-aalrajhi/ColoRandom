@@ -1,28 +1,28 @@
 // Global Variables
+var currentPalette = new Palette();
 var hexCharacters =[
   "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
   "A", "B", "C", "D", "E", "F"
 ];
 var savedPalettes = [];
-var currentPalette = new Palette();
 
 var buttonNewPalette = document.querySelector('#new-palette-button');
 var buttonSavePalette = document.querySelector('#save-palette-button');
 var displayPalette = document.querySelector('.current-palette');
-var savedPalettesSection = document.querySelector('.saved-palettes');
 var iconLock = document.querySelectorAll('.lock');
 var iconTrash = document.querySelectorAll('.trash');
+var savedPalettesSection = document.querySelector('.saved-palettes');
 
 // Event Listeners
-window.addEventListener('load', makeNewPalette);
 buttonNewPalette.addEventListener('click', makeNewPalette);
 buttonSavePalette.addEventListener('click', savePalette);
-savedPalettesSection.addEventListener('click', function(event) {
-  deletePalette(event);
-});
 displayPalette.addEventListener('click', function(event){
   lockColor(event);
 });
+savedPalettesSection.addEventListener('click', function(event) {
+  deletePalette(event);
+});
+window.addEventListener('load', makeNewPalette);
 
 // Functions
 function getRandomIndex(array) {
@@ -38,9 +38,9 @@ function makeNewHex() {
 }
 
 function makeNewPalette() {
-  for (var i = 0; i < 5; i++) {
-    if (!currentPalette[`color${i + 1}`].locked) {
-      currentPalette[`color${i + 1}`] = makeNewHex();
+  for (var i = 1; i <= 5; i++) {
+    if (!currentPalette[`color${i}`].locked) {
+      currentPalette[`color${i}`] = makeNewHex();
     }
   }
   displayCurrentPalette();
@@ -87,10 +87,10 @@ function displayMiniPalette(idx) {
   miniPalette.classList.add("mini-palette");
   savedPalettesSection.appendChild(miniPalette);
 
-  for(var i = 0; i < 5; i++) {
+  for(var i = 1; i <= 5; i++) {
     var miniBox = document.createElement("div");
     miniBox.classList.add("mini-box");
-    miniBox.style.backgroundColor = savedPalettes[idx][`color${i + 1}`].hexCode;
+    miniBox.style.backgroundColor = savedPalettes[idx][`color${i}`].hexCode;
     miniPalette.appendChild(miniBox);
   }
 

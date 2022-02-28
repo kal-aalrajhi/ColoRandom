@@ -110,6 +110,7 @@ h2 {
   flex-direction: column;
   text-align: center;
   width: 20%;
+  overflow-y: scroll;
 }
 
 .trash{

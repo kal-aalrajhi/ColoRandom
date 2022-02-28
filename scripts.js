@@ -50,7 +50,7 @@ function displayMiniPalette(idx) {
   miniPalette.classList.add('mini-palette');
   savedPalettesSection.appendChild(miniPalette);
 
-  for(var i = 1; i <= 5; i++) {
+  for (var i = 1; i <= 5; i++) {
     var miniBox = document.createElement('div');
     miniBox.classList.add('mini-box');
     miniBox.style.backgroundColor = savedPalettes[idx][`color${i}`].hexCode;
@@ -74,9 +74,11 @@ function lockColor(event) {
     if (colorId === `box${i + 1}` && !currentPalette[`color${i+1}`].locked) {
       currentPalette[`color${i+1}`].locked = true;
       iconLock[i].src = './assets/lock-locked.svg';
+      iconLock[i].alt = 'locked lock icon';
     } else if (colorId === `box${i + 1}` && currentPalette[`color${i+1}`].locked){
       currentPalette[`color${i+1}`].locked = false;
       iconLock[i].src = './assets/lock-unlocked.svg';
+      iconLock[i].alt = 'unlocked lock icon';
     }
   }
 }
